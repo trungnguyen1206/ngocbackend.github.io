@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Lalezar|Roboto&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    box-sizing: border-box;
+    font-size: 1em;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: rgb(53, 50, 50);
+}
+header {
+    
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    z-index: 1;
+    box-shadow: 10px 5px 10px #333;
+}
+header .menu-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+header .menu-top .logo-left h1{
+    text-transform: uppercase;
+}
+header .menu-top .logo-left h1 span{
+    color: rgb(201, 92, 92);
+}
+
+
+#menu{
+    
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+#menu li{
+    padding: 0 10px;
+}
+#menu li a{
+    text-transform: uppercase;
+}
+#menu li a:hover{
+    color: rgb(221, 56, 56);
+}
+
+.menu-right label,#menu-toggle{
+    display: none;
+}
+
+.banner{
+    width: 100%;
+    height: 100%;
+    background-color: #e9585f;
+    position: relative;
+}
+.banner::before{
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: #e4555b ;
+    width: 50%;
+    height: 100%;
+}
+.iam{
+    position: absolute;
+    top: 27%;
+    left: 0;
+    text-align: center;
+}
+.iam img{
+    width: 10%;
+    border-radius: 50%;
+}
+
+@media (max-width: 576px){
+    .menu-top{
+        position: relative;
+    }
+    #menu{
+        width: 100%;
+        overflow: hidden;
+        max-height: 0;
+        flex-direction: column;
+        text-align: center;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        background-color: #ffffff;
+        -webkit-transition: 0.5s;
+    }
+    #menu li{
+        padding-top: 5px;
+    }
+    .menu-right label{
+        display: inline-block;
+        float: right;
+    }
+    #menu-toggle:checked + #menu{
+        max-height: 120px;
+    }
+    
+}
+
+
+
