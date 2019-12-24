@@ -9,7 +9,7 @@ body,html{
 }
 body{
     box-sizing: border-box;
-    font-size: 1em;
+    font-size: 1rem;
     overflow-x: hidden;
     overflow-y: scroll;
     font-family: 'Roboto', sans-serif;
@@ -20,10 +20,10 @@ a{
 }
 header {
     
-    position: sticky;
-    top: 0;
+    position: fixed;
+    width: 100%;
     background: #ffffff;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 10px 5px 10px #333;
 }
 header .menu-top{
@@ -78,7 +78,7 @@ header .menu-top .logo-left h1 span{
 }
 .iam{
     position: absolute;
-    top: 27%;
+    top: 24%;
     left: 0;
     text-align: center;
 }
@@ -86,7 +86,80 @@ header .menu-top .logo-left h1 span{
     width: 10%;
     border-radius: 50%;
 }
-
+.iam h3{
+    padding: 1rem 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    font-size: 2rem;
+}
+.iam p{
+    padding: 1rem 0 2rem 0;
+    color: #ffffff;
+}
+.iam button{
+    padding: 0.5rem 1rem;
+    background-color:rgb(29, 29, 29);
+    color: #ffffff;
+    cursor: pointer;
+    border: 1px black solid;
+    transition: 0.5s;
+}
+.iam button:hover{
+    background-color: #ffffff;
+    color: rgb(29, 29, 29);
+}
+.about-me {
+    padding-top: 2rem;
+}
+.section-title{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+.section-title h2{
+    font-weight: 300;
+    color: #333;
+    position: relative;
+}
+.section-title h2:after{
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 46%;
+    height: 1px;
+    width: 50px ;
+    background:  #e4555b;
+}
+.section-title p{
+    padding-top: 20px;
+    color: #333;
+}
+.about-detail{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 3rem;
+}
+.col-4{
+    width: 33.3333333%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.about-detail-left{
+    text-align: right;
+}
+.about-detail-center img{
+    width: 100%;
+}
+.about-detail .item{
+    padding: 20px 10px;
+}
+.about-detail .item h4{
+    font-size: 2rem;
+    font-weight: 300;
+    color: #333;
+}
 @media (max-width: 576px){
     .menu-top{
         position: relative;
@@ -114,6 +187,17 @@ header .menu-top .logo-left h1 span{
         max-height: 120px;
     }
     
+}
+@media (max-width: 768px){
+    .about-detail{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .col-4{
+        width: 100%;
+        text-align: center;
+    }
 }
 
 
