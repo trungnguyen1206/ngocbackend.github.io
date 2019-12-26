@@ -7,9 +7,11 @@ body,html{
     width: 100%;
     height: 100%;
 }
+:root{
+    font-size: 16px;
+}
 body{
     box-sizing: border-box;
-    font-size: 1rem;
     overflow-x: hidden;
     overflow-y: scroll;
     font-family: 'Roboto', sans-serif;
@@ -24,7 +26,7 @@ header {
     width: 100%;
     background: #ffffff;
     z-index: 2;
-    box-shadow: 10px 5px 10px #333;
+    box-shadow: 0 7px 10px  #333;
 }
 header .menu-top{
     display: flex;
@@ -42,7 +44,6 @@ header .menu-top .logo-left h1 span{
 
 
 #menu{
-    
     display: flex;
     justify-content: center;
     list-style: none;
@@ -72,7 +73,7 @@ header .menu-top .logo-left h1 span{
     top: 0;
     left: 0;
     position: absolute;
-    background-color: #e4555b ;
+    background-color: #dd333a ;
     width: 50%;
     height: 100%;
 }
@@ -81,6 +82,7 @@ header .menu-top .logo-left h1 span{
     top: 24%;
     left: 0;
     text-align: center;
+    width: 100%;
 }
 .iam img{
     width: 10%;
@@ -102,7 +104,9 @@ header .menu-top .logo-left h1 span{
     color: #ffffff;
     cursor: pointer;
     border: 1px black solid;
-    transition: 0.5s;
+    /* transition: color  background-color  0.5s; */
+    transition-property: color , background;
+    transition-duration: 0.5s , 0.5s;
 }
 .iam button:hover{
     background-color: #ffffff;
@@ -125,22 +129,22 @@ header .menu-top .logo-left h1 span{
     content: "";
     position: absolute;
     bottom: -3px;
-    left: 46%;
+    left: 47%;
     height: 1px;
-    width: 50px ;
+    width: 6% ;
     background:  #e4555b;
 }
 .section-title p{
     padding-top: 20px;
     color: #333;
 }
-.about-detail{
+.content{
     display: flex;
     width: 90%;
     margin: 0 auto;
     padding-top: 3rem;
 }
-.col-4{
+.col-4-about{
     width: 33.3333333%;
     display: flex;
     flex-direction: column;
@@ -152,13 +156,123 @@ header .menu-top .logo-left h1 span{
 .about-detail-center img{
     width: 100%;
 }
-.about-detail .item{
+.about-detail .item-about{
     padding: 20px 10px;
 }
-.about-detail .item h4{
-    font-size: 2rem;
+.about-detail .item-about h4{
+    font-size: 1.5rem;
     font-weight: 300;
     color: #333;
+}
+.project-me{
+    padding-top: 2rem;
+}
+.col-4-project{
+    width: 33.3333%;
+    padding: 0 15px;
+}
+.item-project a{
+    background: black;
+    width: 100%;
+    height: 100%;
+    display: block;
+    perspective: 18rem;
+}
+.item-project .img {
+    position: relative;
+    transform-origin: 0 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+.item-project .img img{
+    width: 100%;
+    height: 100%;
+}
+.item-project .img h3{
+    position: absolute;
+    top: 44%;
+    left: 36%;
+    color: #ffffff;
+    font-size: 2rem;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition:   0.5s;
+}
+.item-project .img::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 37, 27, 0.432);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+.item-project a:hover .img h3{
+    opacity: 1;
+    visibility: visible;
+    
+}
+.item-project a:hover .img::after{
+    opacity: 1;
+    visibility: visible;
+}
+.item-project a:hover .img{
+    transform: rotateY(5deg);
+} 
+.contact{
+    padding-top: 2rem;
+}
+.contact-form{
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.contact-form form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-control{
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 7px 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.contact-form textarea{
+    height: 150px;
+    resize: none;
+}
+input[type='text']{
+    width: 49%;
+}
+.btn-send{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    background: #222222;
+    color: #ffffff;
+    padding: 5px 0;
+    border: none;
+}
+footer{
+    background-color: #e9585f;
+    margin-top: 2rem;
+}
+footer p{
+    padding: 10px 5px;
+    color: #ffffff;
+    text-align: center;
 }
 @media (max-width: 576px){
     .menu-top{
@@ -186,17 +300,49 @@ header .menu-top .logo-left h1 span{
     #menu-toggle:checked + #menu{
         max-height: 120px;
     }
+    .iam{
+        top: 40%;
+    }
     
 }
 @media (max-width: 768px){
-    .about-detail{
-        display: flex;
-        flex-direction: column;
-        
+    :root{
+        font-size: 12px;
     }
-    .col-4{
+    .about-detail,.project-detail{
+        display: flex;
+        flex-direction: column; 
+    }
+    .col-4-about,.col-4-project{
         width: 100%;
         text-align: center;
+        padding: 15px 0;
+    }
+    .item-project .img h3{
+        opacity: 1;
+        visibility: visible;
+        transition: 0.5s;
+    }
+
+    .contact-form form{
+        flex-direction: column;
+    }
+    input[type='text']{
+        width: 100%;
+    }
+    .item-project .img h3{
+        font-size: 3rem;
+    }
+    .iam{
+        top: 30%;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px){
+    .item-project .img h3{
+        font-size: 1.5rem;
+    }
+    .iam{
+        top: 28%;
     }
 }
 
